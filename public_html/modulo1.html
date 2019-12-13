@@ -1,0 +1,174 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Projeto Integrador 2019</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="subpage">
+
+		<!-- Header -->
+			<header id="header">
+				<div class="inner">
+					<a href="index.html" class="logo">ADS - 2019</a>
+					<nav id="nav">
+						<a href="index.html">Início</a>
+						<a href="calculadora.html">Calculadora IP</a>
+						<a href="modulo1.html"></a>
+					</nav>
+					<a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+				</div>
+			</header>
+
+		<!-- Main -->
+			<section id="main" class="wrapper">
+				<div class="inner">
+					<header class="align-center">
+						<h2>Módulo I</h2>
+						<p>1º Período ADS </p>
+					</header>
+
+				<!-- Content -->
+					<h2 id="content">Projeto Integrador</h2>
+					<p>O projeto integrador do Curso Superior de Tecnologia em Análise e Desenvolvimento de Sistemas da 
+						Faculdade SENAC Goiás, tem como objetivo promover a interdisciplinaridade entre as unidades
+						curriculares do módulo, oportunizando aos acadêmicos que transitem em vários níveis do saber e, 
+						concomitantemente apliquem os conhecimentos adquiridos na criação de um produto final com o 
+						propósito de desenvolver de modo concreto as competências e habilidades profissionais 
+						trabalhadas no curso Superior de Tecnologia em Análise de Desenvolvimento de Sistemas.</p>
+					<div class="row">
+						<div class="6u 12u$(small)">
+							<h3>Fundamentos de Redes de Computadores</h3>
+							<div class="6u 12u$(small)">
+
+									<h4>Descrição</h4>
+									<ul>
+										<li>Identificar IP's</li>
+										<li>Identificar máscara de sub-rede</li>
+										<li>Identificar endereço de broadcast</li>
+										<li>Identificar endereço disponíveis</li>
+									</ul>
+								</div>
+						</div>
+						<div class="6u$ 12u$(small)">
+							<h3>Lógica de Programação</h3>
+							<p> Basicamente o programa é responsável pelo cálculo de IP's onde o usuário fornece
+								os dados. Uma série de condições e métodos são executados para garantir se o endereço
+								é válido.
+								Após feito a validação o IP passa por uma condição que mostrará ao usuário se os Ip's 
+								estão na mesma Rede , para isso quebramos o IP em octetos, assim descobrimos se estão 
+								na mesma Classe (A,B,C,D e E).
+								Usamos um método para obter a máscara de rede e assim junto com o IP dado pelo usuário
+								calculamos o endereço de rede, broadcast e o intervalo de ip's válidos.
+							</p>
+						</div>
+					</div>
+								<h4>Criar uma verão da Calculadora IP, para rodar em Linux</h4>
+								<dl>
+									<dt>Instalar Java com apt-get <br>
+									Atualize o pacotes :</dt>
+									<dd>
+										<p>sudo apt-get update</p>
+									</dd>
+									<dt>Verificar se o Java já não se encontra instalado e a versão</dt>
+									<dd>
+										<p>java -version</p>
+									</dd>
+									<dt>Se isso retornar "The program java can be found in the following packages",<br> o Java 
+										não foi instalado ainda, então execute o seguinte commando:</dt>
+									<dd>
+										<p>sudo apt-get install default-jre</p>
+									</dd>
+									<dt>Isto irá instalar o Java Runtime Environment(JRE). Se em vez disso,<br>
+										você precisa do Java Development Kit (JDK), que é geralmente necessário para compilar aplicações<br>
+										Java (por exemplo Apache Ant, Apache Maven, Eclipse e IntelliJ IDEA), execute o seguinte comando:
+									</dt>
+									<dd>
+										<p>sudo apt-get install default-jdk</p>
+									</dd>
+								</dl>
+								<dl>
+										<dt>Instalar Java no Windows <br>
+										Faça o Download do arquivo: </dt>
+										<dd>
+										<p><a href ="https://www.java.com/pt_BR/download/" target="_blank">https://www.java.com/pt_BR/download/</a></p>
+										</dd>
+										<dt>Execute o comando no Windows ou Linux</dt>
+										<dd>
+											<p>java nome_da_classe.class</p>
+											<p>javac nome_da_classe.java</p>
+										</dd>
+										<footer>
+												<a href="images/linuxjavaclass.png" target="_blank" class="button special">Executando no Linux</a>
+											</footer>
+								</dl>
+						<div class="6u$ 12u$(medium)">
+							<!-- Box -->
+								<h3>Script no Linux usando a ferramenta geoiplookup</h3>
+								<div class="box">
+									<dt><p>Faça a instalação da ferramenta no linux via terminal</p></dt>
+											<br>On Debian, Ubuntu, Linux Mint: <br>sudo apt-get install geoip-bin
+											<br>On CentOS, Fedora: <br>sudo yum install geoip
+										
+										<dt><br>Info sobre o script :</dt>
+										<p>Solicita o usuário que digite um IP, armazena o dado recebido e executa 
+											o geoip mostrando na tela a localização.</p>
+										<dt>Info dos Comandos Utilizados</dt>	
+										<br>GEOIP - é uma biblioteca que permite que o usuário descubra a origem
+										de um determinado host na internet.
+										<br>Which geoiplookup - usado para realizar buscas de arquivos no sistema
+										de forma rápida (Which busca por arquivos executáveis nos PATHS exportados).
+
+									</p>
+								</div>
+
+							<!-- Preformatted Code -->
+								<h3>Código Script</h3>
+<pre><code>
+#!/bin/bash
+GEOIP=`which geoiplookup`
+USER=`whoami`
+DADOS=`uptime`
+DIR=`pwd`
+		
+echo "O usuário que está atualmente logado é: "$USER
+echo " "
+echo "Informação,hora atual e tempo que o computador está ligado: "$DADOS
+echo " "
+echo "O script está executando no diretório: "$DIR
+echo " "
+echo -n "Digite o seu endereço IP: "
+read IP 
+echo " "
+echo "O seu endereço IP é:" $IP
+echo " "
+echo "A geolocalização do IP mencionado é: " `$GEOIP $IP | (cut -d ":" -f 2)`
+echo " "
+</code></pre>
+	<footer>
+		<a href="images/tsukas.png" target="_blank" class="button special">Executando no Linux</a>
+	</footer>
+
+						</div>
+					</div>
+				</div>
+</section>
+			<!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+					<div class="flex">
+						<div class="copyright">
+							<p> Análise de Desenvolvimento de Sistemas - 2019</p>
+						</div>
+						<ul class="icons">
+							<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+							<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+							<li><a href="#" class="icon fa-github"><span class="label">Github</span></a></li>
+						
+							
+					</div>
+				</div>
+			</footer>
+	</body>
+</html>
